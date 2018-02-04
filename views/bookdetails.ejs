@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Library.</title>
+      <link rel="stylesheet" type="text/css" href="./css/addbooks.css">
+      <link rel="stylesheet" type="text/css" href="./css/bookdetails.css">
+  </head>
+<body>
+  <div id = "main-box">
+     <div id = "top-box">
+          <img src="./img/library_logo.png" id = "lib-logo"/>
+          <span id = "books"><a href="/">Books</a></span>
+          <span id = "authors"><a href="/addauthor">Authors</a></span>
+          <div id = "line-books"></div>
+       <!---div id = "line-authors"></div-->
+     </div>
+     <div id="page_name"><span id="color-author">Books</span> / Details</div>
+     <div id="navi-note">Navigate to Previous / Next Book</div>
+     <button id = "pbutton"><center><img src="img\prev_icon.png"></center></button>
+     <button  id = "nbutton"><center><img src="img\next_icon.png"></center></button>
+     <div id= "content-box">
+                    <div class = "bookdetails-content">
+                         <img src="img/book_icon.png" class = "book-icon"/>
+                          <div class = "book-name-box">
+                            <a href="/bookdetails?book=<%=results.name%>"><span class = "book-name"><%=results.name%><span></a>
+                          </div>
+                          <div class = "newdiv"><span class = "isbn">ISN-<span class ="isbn-"><%=results.isbn%><span></span></div>
+                          <div class ="author">by<a href="/authordetails?author=<%=results.author%>"><span class ="author-name"><%=results.author%></span></a></div>
+                          <div class ="book-content"><p><%= results.des%></p></div>
+                       </div>
+    </div>
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <form name = "addbook" method = "post" action = "#">
+           <div id="in-div-addbook">ADD BOOK</div>
+           <div id="in-div-book-name">Book Name</div>
+           <div><input id="in-div-input-book-box" type="text" name="bookname" placeholder="Book Name" required></div>
+           <div>
+              <select id="in-div-selection">
+                  <option value="invalid">Select Author</option>
+                  <option value="saab">Saab</option>
+                  <option value="mercedes">Mercedes</option>
+                  <option value="audi">Audi</option>
+              </select>
+          </div>
+           <div><input id="in-div-input-isbn-box" type="number" name="isbn" placeholder="ISBN Number" required></div>
+           <div><textarea id="in-div-input-des" type="text" name="des" placeholder="Description Of Content" maxlength="300"></textarea></div>
+           <div id="in-div-note">Maximum Characters 300</div>
+           <div><input id="in-div-cancel" type="button" name="cancel" value="Cancel"></div>
+           <div><input id="in-div-submit" type="submit" name="submit" value="Add Book"></div>
+      </form>
+    </div>
+  </div>
+  <script>
+        var nbutton = document.getElementById('nbutton');
+        var cid = <%=results.id%>;
+        var tot = <%=count%>;
+        nbutton.onclick = function() {
+            if(cid == tot){
+                alert('Reached Last Author');
+            }
+            else{
+              const http = new XMLHttpRequest()
+              http.open("GET", "http://localhost:3000/getnextbook?cid=" + cid);
+              http.send();
+              http.onload = () => window.open(http.responseText,"_self")
+            }
+        }
+        var pbutton = document.getElementById('pbutton');
+        pbutton.onclick = function() {
+            if(cid == '1'){
+                alert('Reached First Author');
+            }
+            else{
+              const http = new XMLHttpRequest()
+              http.open("GET", "http://localhost:3000/getprevbook?cid=" + cid);
+              http.send();
+              http.onload = () => window.open(http.responseText,"_self")
+            }
+        }
+  </script>
+</body>
+</html>

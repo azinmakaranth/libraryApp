@@ -1,0 +1,314 @@
+body{
+  color : #777982;
+  font-family: sans-serif;
+}
+
+#main-box{
+  width: 768.00px;
+  height: 768.00px;
+  background-color : #f8f8fa;
+  margin-right: auto;
+  margin-left: auto;
+}
+#top-box{
+  width: 768px;
+  height: 52.50px	;
+  background-color : #ffffff ;
+  position: relative;
+  display: block;
+}
+#page_name {
+    display: inline;
+    position: absolute;
+    top: 81px;
+    left: 413px;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+#no_of_books {
+    display: inline;
+    position: absolute;
+    top: 81px;
+    left: 865px;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+#title-name{
+  color: #6495ED;
+}
+#lib-logo{
+  width: 58.50px;
+  height : 21.00px;
+  position: absolute;
+  top:  15.75px;
+  left: 30.75px;
+}
+#books{
+  font-family:  sans-serif;
+  font-size: 12px;
+  color: cornflowerblue;
+  position: absolute;
+  right: 130.50px	;
+  top:  20.25px;
+}
+#authors{
+     font-family:  sans-serif;
+     font-size: 12px;
+     position: absolute;
+     right: 48.00px;
+     top:  20.25px;
+}
+#authors a{
+   color: #777982;
+}
+#line-books{
+    position: absolute;
+    border-style:  solid;
+    border-color:  cornflowerblue;
+    height: 0px;
+    width: 18px;
+    border-radius:  12px;
+    top: 35px;
+    right: 136px;
+}
+#line-authors{
+  position: absolute;
+  border-style:  solid;
+  border-color:  cornflowerblue;
+  height: 0px;
+  width: 18px;
+  border-radius:  12px;
+  top: 35px;
+  right: 59px;
+}
+#content-box{
+  position: absolute;
+  top: 114.00px;
+  width: 525.75px;
+  height: 620px;
+  position:  absolute;
+  left: 410px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+.button {
+    background: #6379f6;
+    position: absolute;
+    width: 157.50px;
+    height: 30px;
+    top: 114px;
+    right: 395.5px;
+    border: none;
+    color: #ffffff;
+}
+.book-icon{
+  width: 28.50px;
+  position: relative;
+  top: 8px;
+  left: 6px;
+}
+.book-name{
+    font-family: sans-serif;
+    height: 19px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+}
+.book-name-box{
+  position: relative;
+  top: -20px;
+  left: 43px;
+  width: 308px;
+}
+.isbn{
+  color: #9095aa;
+  font-style: normal;
+  font-size: 11px;
+}
+.isbn-{
+  color : #777982;
+}
+.author {
+    position: relative;
+    top: -39px;
+    left: 43px;
+    width: 291px;
+    height: 18px;
+}
+.author-name{
+  font-family: sans-serif;
+  padding-left: 3px;
+  color: #000000;
+}
+.book-content{
+  width: 424px;
+  position: relative;
+  top: -34px;
+  left: 44px;
+  height: 18px;
+  font-size: 13px;
+}
+.content{
+  display: block;
+  background: #ffffff;
+  height: 74.25px;
+  border-bottom: 1px;
+  border-bottom-color: #f8f8fa;
+  border-bottom-style: solid;
+}
+a{
+  text-decoration: none;
+  color: cornflowerblue;
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #f8f8fa; /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+      background-color: #f8f8fa;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 360px;
+      height: 379.50px;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+#in-div-addbook{
+    display: block;
+    position: relative;
+    top: 19px;
+    left: 20.5px;
+    width: 315.00px;
+    height: 13.50px;
+    font-family: sans-serif;
+    color: #000000;
+    font-weight: bold;
+    font-size: 16px;
+}
+#in-div-book-name{
+  display: block;
+  width: 315.00px;
+  height: 13.5px;
+  position: relative;
+  top: 27px;
+  left: 20.5px;
+  color: #8d8d8f;
+  font-size: 12px;
+}
+#in-div-input-book-box{
+  display: block;
+  width: 315.00px;
+  height: 18.5px;
+  position: relative;
+  top: 32px;
+  left: 20.5px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  background: #f8f8fa;
+}
+#in-div-selection{
+  display: block;
+  width: 315.00px;
+  height: 19.5px;
+  position: relative;
+  top: 48px;
+  left: 20.5px;
+}
+#in-div-input-isbn-box{
+  display: block;
+  width: 184px;
+  height: 13.50px;
+  position: relative;
+  top: 60px;
+  left: 20.5px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  background: #f8f8fa;
+}
+#in-div-input-des{
+  display: block;
+  width: 310px;
+  height: 124.5px;
+  position: relative;
+  top: 75px;
+  left: 20.5px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  background: #f8f8fa;
+}
+#in-div-note{
+      display: block;
+      width: 315.00px;
+      height: 13.5px;
+      position: relative;
+      top: 83px;
+      left: 20.5px;
+      font-size: 13px;
+}
+#in-div-cancel{
+  display: inline;
+  width: 150.00px;
+  height: 36.5px;
+  position: relative;
+  top: 111px;
+  left: 20.5px;
+  background: #ffffff;
+  border: none;
+  color: #777982;
+}
+#in-div-submit{
+      display: inline;
+      width: 150.00px;
+      height: 36.5px;
+      position: relative;
+      top: 75px;
+      left: 186.5px;
+      background: cornflowerblue;
+      border: none;
+      color: #ffffff;
+}
+.newdiv{
+  position: relative;
+  left: 401px;
+  top: -39px;
+  width : 117px;
+}
+.more-button {
+     position: relative;
+     top: -54px;
+     left: 437px;
+     font-size: 13px;
+
+}

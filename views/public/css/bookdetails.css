@@ -1,0 +1,53 @@
+.bookdetails-content{
+  height: 510.75px;
+  display: block;
+  background: #ffffff;
+  border-bottom: 1px;
+  border-bottom-color: #f8f8fa;
+  border-bottom-style: solid;
+}
+#pbutton{
+  width: 78.75px;
+  height: 51px;
+  position: absolute;
+  top: 113px;
+  right: 481px;
+  background: #ffffff;
+  border-width: 1px;
+  box-shadow: none;
+}
+#nbutton{
+  width: 78.75px;
+      height: 51px;
+      position: absolute;
+      top: 113px;
+      right: 402px;
+      background: #ffffff;
+      border-width: 1px;
+      box-shadow: none;
+}
+#books a{
+   color: #777982;
+}
+#authors a{
+  color: #777982;
+}
+#line-books{
+ display: none;
+}
+#line-authors{
+ display: none;
+}
+#pbutton img,#nbutton img{
+  width: 18px;
+  height: 18px;
+}
+#navi-note{
+  position: absolute;
+  top: 171px;
+  right: 400px;
+  font-size: 11px;
+}
+#color-author{
+  color : cornflowerblue;
+}

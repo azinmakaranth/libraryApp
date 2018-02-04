@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Library.</title>
+      <link rel="stylesheet" type="text/css" href="css/addbooks.css">
+  </head>
+<body>
+  <div id = "main-box">
+     <div id = "top-box">
+          <img src="./img/library_logo.png" id = "lib-logo"/>
+          <span id = "books"><a href="/">Books</a></span>
+          <span id = "authors"><a href="/addauthor">Authors</a></span>
+          <div id = "line-books"></div>
+       <!---div id = "line-authors"></div-->
+     </div>
+     <div id="page_name">BOOKS</div>
+     <div id="no_of_books"><%= no_of %>Books</div>
+     <button class = "button" id = "addbookButton">Add Book</button>
+     <div id= "content-box">
+       <% results.forEach(element =>{ %>
+                    <div class = "content">
+                         <img src="img/book_icon.png" class = "book-icon"/>
+                          <div class = "book-name-box">
+                            <a href="/bookdetails?book=<%=element.name%>"><span class = "book-name"><%=element.name%><span></a>
+                          </div>
+                          <div class = "newdiv"><span class = "isbn">ISN-<span class ="isbn-"><%=element.isbn%><span></span></div>
+                          <div class ="author">by<a href="/authordetails?author=<%=element.author%>"><span class ="author-name"><%=element.author%></span></a></div>
+                          <div class ="book-content"><%= element.des%> ...</div>
+                           <div class ="more-button"><a href = "/bookdetails?book=<%=element.name%>">More...</a></div>
+                       </div>
+        <%  }); %>
+    </div>
+  </div>
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <form name = "addbook" method = "get" action = "/addbook">
+           <div id="in-div-addbook">ADD BOOK</div>
+           <div id="in-div-book-name">Book Name</div>
+           <div><input id="in-div-input-book-box" type="text" name="bookname" placeholder="Book Name" required></div>
+           <div>
+              <select id="in-div-selection" name="opt">
+                  <option value="invalid">Select Author</option>
+               <% resu.forEach(e =>{ %>
+                  <option value = "<%=e.name%>"><%=e.name%></option>
+              <%  }); %>
+              </select>
+          </div>
+           <div><input id="in-div-input-isbn-box" type="text" name="isbn" placeholder="ISBN Number" maxlength="16" required></div>
+           <div><textarea id="in-div-input-des" type="text" name="des" placeholder="Description Of Content" maxlength="300" required></textarea></div>
+           <div id="in-div-note">Maximum Characters 300</div>
+           <div><input id="in-div-cancel" type="button" name="cancel" value="Cancel"></div>
+           <div><input id="in-div-submit" type="submit" name="submit" value="Add Book"></div>
+      </form>
+    </div>
+  </div>
+  <script>
+  var modal = document.getElementById('myModal');
+  var btn = document.getElementById("addbookButton");
+  var span = document.getElementsByClassName("close")[0];
+  var span2 = document.getElementsByName('cancel')[0];
+  btn.onclick = function() {
+      modal.style.display = "block";
+  }
+  span.onclick = function() {
+      modal.style.display = "none";
+  }
+  span2.onclick = function() {
+     modal.style.display = "none";
+  }
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  }
+  </script>
+</body>
+</html>

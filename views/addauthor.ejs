@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Library.</title>
+      <link rel="stylesheet" type="text/css" href="css/addbooks.css">
+      <link rel="stylesheet" type="text/css" href="css/addauthors.css">
+  </head>
+<body>
+  <div id = "main-box">
+     <div id = "top-box">
+          <img src="./img/library_logo.png" id = "lib-logo"/>
+          <span id = "books"><a href="/">Books</a></span>
+          <span id = "authors"><a href="/addauthor">Authors</a></span>
+          <div id = "line-authors"></div>
+     </div>
+     <div id="page_name">AUTHORS</div>
+     <div id="no_of_books"><%no_of%>Authors</div>
+     <button class = "button" id="addauth">Add Author</button>
+     <div id= "content-box">
+       <% results.forEach(element =>{ %>
+          <div class = "content">
+               <img src="img/author_icon.png" class = "author-icon"/>
+                 <div class = "author-name-box">
+                    <a href="/authordetails?author=<%=element.name%>"><span class = "author-name"><%=element.name%><span></a>
+                 </div>
+                 <div class = "newdiv_">
+                    <span class = "country">Born In <%=element.country%></span>
+                 </div>
+                 <div class ="age">Age<span class ="sage"> <%=element.age%>/<%=element.gender%></span></div>
+        </div>
+      <%  }); %>
+    </div>
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <form name = "addbook" method = "get" action = "/addathr">
+             <div id="in-div-addbook">ADD AUTHOR</div>
+             <div id="in-div-book-name">Author Name</div>
+             <div><input id="in-div-input-book-box" type="text" name="authorname" placeholder="Author Name" required></div>
+             <div><input id="in-div-input-age-box" type="number" name="authorage" placeholder="Age" required maxlength="2"></div>
+             <div>
+                <select id="in-div-gender-selection" name="gender">
+                    <option value="invalid">Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+             <div><input id="in-div-input-born-box" type="date" name="borndate"  placeholder="Born In" required></div>
+             <div><input id="in-div-input-country-box" type="text" name="country"  placeholder="Country" required></div>
+             <div><textarea id="in-div-input-about" type="text" name="aboutauthor" placeholder="About Author" maxlength="100"></textarea></div>
+             <div><input id="in-div-cancel" type="button" name="cancel" value="Cancel"></div>
+             <div><input id="in-div-submit" type="submit" name="submit" value="Add Book"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script>
+  var modal = document.getElementById('myModal');
+  var btn = document.getElementById("addauth");
+  var span = document.getElementsByClassName("close")[0];
+  var span2 = document.getElementsByName('cancel')[0];
+  btn.onclick = function() {
+      modal.style.display = "block";
+  }
+  span.onclick = function() {
+      modal.style.display = "none";
+  }
+  span2.onclick = function() {
+     modal.style.display = "none";
+  }
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  }
+  </script>
+</body>
+</html>

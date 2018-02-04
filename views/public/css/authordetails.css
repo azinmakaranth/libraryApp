@@ -1,0 +1,98 @@
+
+.isbn{
+  left: 152px;
+}
+.-content{
+  height: 510.75px;
+  display: block;
+  background: #ffffff;
+  border-bottom: 1px;
+  border-bottom-color: #f8f8fa;
+  border-bottom-style: solid;
+}
+#books a{
+   color: #777982;
+}
+#authors a{
+  color: #777982;
+}
+#line-books{
+ display: none;
+}
+#line-authors{
+ display: none;
+}
+#inside-content-box{
+  position: absolute;
+  top: 130px;
+  width: 447.75px;
+  height: 362px;
+  position: absolute;
+  left: 52px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+.author-name1{
+  font-family: sans-serif;
+  padding-left: 3px;
+  color: #000000;
+}
+#no_of{
+  position: relative;
+  top: -400px;
+  left: 63px;
+  font-size: 11px;
+}
+#color-author{
+  color : cornflowerblue;
+}
+#abt-authr{
+  width: 445px;
+  height: 45px;
+  position: relative;
+  top: -43px;
+  left: 49px;
+  font-size: 13px;
+}
+.age {
+      position: relative;
+      left: 48px;
+      top: -52px;
+      color: #9095aa;
+}
+.author {
+  position: relative;
+  top: -32px;
+  left: 43px;
+  width: 291px;
+  height: 18px;
+}
+.book-content {
+  width: 424px;
+  position: relative;
+  top: -31px;
+  left: 44px;
+  height: 18px;
+  font-size: 13px;
+}
+.newdiv2{
+  position: relative;
+  top: -40px;
+  left: 347px;
+}
+.more-button {
+    position: relative;
+    top: -49px;
+    left: 410px;
+    font-size: 13px;
+}
+#written{
+      position: relative;
+      top: -26px;
+      left: 57px;
+      font-size: 10px;
+}

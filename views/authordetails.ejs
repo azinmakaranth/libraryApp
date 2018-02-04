@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Library.</title>
+      <link rel="stylesheet" type="text/css" href="css/addbooks.css">
+      <link rel="stylesheet" type="text/css" href="css/addauthors.css">
+      <link rel="stylesheet" type="text/css" href="css/bookdetails.css">
+      <link rel="stylesheet" type="text/css" href="css/authordetails.css">
+  </head>
+<body>
+  <div id = "main-box">
+     <div id = "top-box">
+       <img src="img\library_logo.png" id = "lib-logo"/>
+       <span id = "books"><a href="/">Books</a></span>
+       <span id = "authors"><a href="/addauthor">Authors</a></span>
+       <!---div id = "line-books"></div-->
+       <div id = "line-authors"></div>
+     </div>
+     <div id="page_name"><span id="color-author">Authors</span> / Details</div>
+     <div id="navi-note">Navigate to Previous / Next Book</div>
+     <button id = "pbutton"><center><img src="img\prev_icon.png"></center></button>
+     <button  id = "nbutton"><center><img src="img\next_icon.png"></center></button>
+     <div id= "content-box">
+       <div class = "-content">
+         <img src="img/author_icon.png" class = "author-icon"/>
+         <div class = "author-name-box">
+           <a href="/authordetails?author=<%=results1.name%>"><span class = "author-name"><%=results1.name%><span></a>
+           <div class = "newdiv"><span class = "country"><%=results1.country%></span></div>
+         </div>
+          <div class ="age">Age<span class ="sage"> <%=results1.age%>/<%=results1.gender%> </span></div>
+          <div id = "abt-authr"><%=results1.about%></div>
+          <div id="written">BOOKS WRITTEN <%=no_of%></div>
+
+     <div id = "inside-content-box">
+      <% results2.forEach(element =>{ %>
+          <div class = "content">
+            <img src="img/book_icon.png" class = "book-icon"/>
+            <div class = "book-name-box">
+                <a href="/bookdetails?book=<%=element.name%>"><span class = "book-name"><%=element.name%><span></a>
+            </div>
+            <div class = "newdiv2"><span class = "isbn">ISN-<span class ="isbn-"><%=element.isbn%><span></span></div>
+            <div class ="author">by<a href="/authordetails?author=<%=element.author%>"><span class ="author-name1"><%=element.author%></span></a></div>
+            <div class ="book-content"><%=element.des%></div>
+            <div class ="more-button"><a href = "/bookdetails?book=<%=element.name%>">More...</a></div>
+         </div>
+     <%  }); %>
+    </div>
+  </div>
+  <script>
+        var nbutton = document.getElementById('nbutton');
+        var cid = <%=results1.id%>;
+        var tot = <%=count%>;
+        nbutton.onclick = function() {
+            if(cid == tot){
+                alert('Reached Last Author');
+            }
+            else{
+              const http = new XMLHttpRequest()
+              http.open("GET", "http://localhost:3000/getnextauthor?cid=" + cid);
+              http.send();
+              http.onload = () => window.open(http.responseText,"_self")
+            }
+        }
+        var pbutton = document.getElementById('pbutton');
+        pbutton.onclick = function() {
+            if(cid == '1'){
+                alert('Reached First Author');
+            }
+            else{
+              const http = new XMLHttpRequest()
+              http.open("GET", "http://localhost:3000/getprevauthor?cid=" + cid);
+              http.send();
+              http.onload = () => window.open(http.responseText,"_self")
+            }
+        }
+  </script>
+ </body>
+</html>
